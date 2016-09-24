@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
     <title>TODO backbone</title>
-    <link rel="stylesheet" type="text/css" href="app/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
@@ -14,10 +14,14 @@
     </main>
 </div>
 
-<script src="libs/jquery/dist/jquery.js"></script>
-<script src="libs/underscore/underscore-min.js"></script>
-<script src="libs/backbone/backbone.js"></script>
-<script src="libs/backbone-localstorage/backbone-localstorage.js"></script>
-<script src="app/main.js"></script>
+<script src="./libs/jquery/dist/jquery.js"></script>
+<script src="./libs/underscore/underscore-min.js"></script>
+<script src="./libs/backbone/backbone.js"></script>
+<script src="./libs/backbone-localstorage/backbone-localstorage.js"></script>
+<script src="libs/requirejs/require.js"></script>
+
+<script>
+    require(['./app/app']);
+</script>
 </body>
 </html>
