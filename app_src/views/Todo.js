@@ -2,19 +2,21 @@ import { UtilsTextEdition } from './../utils/textEdition';
 
 export default class Todo extends Backbone.View {
     constructor (options) {
-        options.tagName = 'li';
         options.events = {
             'click input[type=checkbox]': 'toggleDoneStatus',
             'keyup .contentEditable': 'updateTitle',
             'click .remove': 'remove'
         };
+        options.className = 'item';
 
         super(options);
-        this.className = () => {
-            return this.model.get('doneStatus') ? 'done' : '';
-        };
-        this.template = _.template('<input type="checkbox" <%= checked %>/><div contenteditable="true" class="contentEditable noBorder"><%= title %></div>' +
-            '<div class="remove">x</div>');
+
+        if (this.model.get('doneStatus')) {
+            this.$el.addClass('done');
+        }
+
+        this.template = _.template('<div class="ui checkbox"><input type="checkbox" <%= checked %>/> <label contenteditable="true" class="contentEditable noBorder"><%= title %></label></div>' +
+            '<i class="remove icon right floated"></i>');
         this.inputTemplate = _.template('<input type="text" value="<%= value %> />');
         this.persistModel = _.debounce(() => {
             this.model.save();
@@ -23,7 +25,7 @@ export default class Todo extends Backbone.View {
     }
 
     updateTitle (e) {
-        var newTitle = $(e.currentTarget).text();
+        let newTitle = $(e.currentTarget).text();
         if (newTitle) {
             this.model.set({ title: newTitle });
         } else {
@@ -32,8 +34,8 @@ export default class Todo extends Backbone.View {
     }
 
     toggleDoneStatus (e) {
-        var checkbox = $(e.currentTarget);
-        var isChecked = checkbox.is(':checked');
+        let checkbox = $(e.currentTarget);
+        let isChecked = checkbox.is(':checked');
 
         this.model.set({ 'doneStatus': !!isChecked});
 

@@ -19,7 +19,7 @@ export default class TodoForm extends Backbone.View {
         let title = this.$('.addTodo').html();
 
         if (title.length) {
-            var newTodo = new AppModelsTodo({ title: this.$('.addTodo').html() });
+            let newTodo = new AppModelsTodo({ title: this.$('.addTodo').html() });
             this.todosCollection.add(newTodo, { setFocus: true });
             this.$('.addTodo').html('');
         }

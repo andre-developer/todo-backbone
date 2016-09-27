@@ -1,4 +1,4 @@
-import AppCollectionsTodos from '../collections/Todos';
+import AppCollectionsTodos from './../collections/Todos';
 import AppTodoForm from './TodoForm';
 import AppViewsTodoList from './TodoList';
 
@@ -16,16 +16,16 @@ export default class mainView extends Backbone.View {
 
     updateStats () {
         let count = this.todosCollection.length;
-        this.$('header span').text(count);
+        this.$('.totalItems').text(count);
     }
 
     render () {
-        var todoListView = new AppViewsTodoList({ collection: this.todosCollection });
+        let todoListView = new AppViewsTodoList({ collection: this.todosCollection });
         this.$('main .myList').html(todoListView.render().$el);
     }
 
     init() {
-        var todoFormView = new AppTodoForm({ todosCollection: this.todosCollection });
+        let todoFormView = new AppTodoForm({ todosCollection: this.todosCollection });
         this.updateStats();
         this.$('main').append(todoFormView.render().$el);
     }

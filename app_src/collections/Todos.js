@@ -1,4 +1,4 @@
-import AppModelsTodo from '../models/Todo';
+import AppModelsTodo from './../models/Todo';
 
 export default class Todos extends Backbone.Collection {
     constructor () {
