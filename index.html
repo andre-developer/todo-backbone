@@ -3,16 +3,35 @@
 <head>
 	<meta charset="UTF-8">
     <title>TODO backbone</title>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
+
 </head>
 <body>
 
 <div id="app">
-    <header>Total elements: <span></span></header>
-    <main>
-        <div class="myList"></div>
-    </main>
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+            <a href="#" class="header item">
+                <i class="icon tasks"></i>
+                Todo List in Backbone
+            </a>
+
+            <a href="#" class="header right floated item">
+                Total items: <span class="totalItems"></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="ui two column centered grid">
+        <div class="column">
+            <main>
+                <div class="myList"></div>
+            </main>
+        </div>
+    </div>
 </div>
+
 
 <script src="./libs/jquery/dist/jquery.js"></script>
 <script src="./libs/underscore/underscore-min.js"></script>

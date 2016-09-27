@@ -1,24 +1,11 @@
-body {
-    font-family: Times;
-}
-#todo-list, .addTodo, header {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    min-width: 200px;
-    width: 60%;
-    margin: 0 auto;
+#app {
+    padding-top: 65px;
 }
 .addTodo {
     padding: 20px;
     cursor: text;
 }
-#todo-list li {
-    display: block;
-    border: 1px dotted gray;
-    padding: 10px 20px;
-}
-#todo-list li.done {
+#todo-list .done {
     text-decoration: line-through;
     opacity: 0.5;
 }
